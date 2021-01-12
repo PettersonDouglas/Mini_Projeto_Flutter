@@ -56,6 +56,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       appBar: AppBar(
+        centerTitle: true,
         title: Text('Super Craques'),
         actions: [],
       ),

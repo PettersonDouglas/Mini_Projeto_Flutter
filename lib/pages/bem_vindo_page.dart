@@ -48,7 +48,9 @@ class BemVindoPage extends StatelessWidget {
             RaisedButton(
               color: Colors.green[900],
               textColor: Colors.white,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushReplacementNamed('/home');
+              },
               child: Text(
                 'Aceitar',
               ),
