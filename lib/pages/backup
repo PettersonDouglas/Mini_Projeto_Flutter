@@ -1,0 +1,34 @@
+void _popup() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: new Text("Bem Vindo(a), " + apelido + " !"),
+          content: new Text('O cadastro de ' +
+              nome +
+              ' ' +
+              sobrenome +
+              ' foi realizado com sucesso. Favor, verifique seu email ' +
+              email +
+              ' para confirmar seu acesso!'),
+          actions: <Widget>[
+            new FlatButton(
+              child: new Text("Fechar"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  (nome != null &&
+        cpf != null &&
+        email != null &&
+        sobrenome != null &&
+        apelido != null &&
+        dataNascimento != null &&
+        descricao != null &&
+        senha != null)
