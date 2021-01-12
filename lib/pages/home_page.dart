@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teste/pages/profile_page.dart';
 
 class HomePage extends StatefulWidget {
   String nome, email;
@@ -37,7 +38,12 @@ class _HomePageState extends State<HomePage> {
               title: Text('Perfil'),
               subtitle: Text('Seu Perfil'),
               onTap: () {
-                Navigator.of(context).pushReplacementNamed('/perfil');
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ProfilePage(
+                              nome: '$widget.nome',
+                            )));
               },
             ),
             ListTile(

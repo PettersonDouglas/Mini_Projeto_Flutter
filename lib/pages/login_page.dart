@@ -6,8 +6,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  String email = '';
-  String senha = '';
+  String email;
+  String senha;
 
   Widget _body() {
     return SizedBox(

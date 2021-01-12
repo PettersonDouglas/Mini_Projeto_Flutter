@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatefulWidget {
+  String nome;
+  ProfilePage({this.nome});
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
@@ -56,7 +58,8 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
       ),
       appBar: AppBar(
-        title: Text('Super Craques'),
+        centerTitle: true,
+        title: Text('Perfil'),
         actions: [],
       ),
       body: Stack(
@@ -75,9 +78,28 @@ class _ProfilePageState extends State<ProfilePage> {
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text('teste'),
+                Container(
+                  height: 30,
+                  width: MediaQuery.of(context).size.width,
+                  color: Colors.white,
+                  child: Text(
+                    '$widget.nome',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+                Container(
+                  color: Colors.white,
+                  width: MediaQuery.of(context).size.width,
+                  height: 200,
+                  child: Image.asset(
+                    'assets/images/logo.png',
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
               ],
             ),
           ),
