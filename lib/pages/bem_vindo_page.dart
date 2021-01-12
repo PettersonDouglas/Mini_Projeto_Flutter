@@ -2,27 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:teste/pages/home_page.dart';
 
 class BemVindoPage extends StatelessWidget {
-  final String nomeBemVindo,
-      sobrenomeBemVindo,
-      apelidoBemVindo,
-      emailBemVindo,
-      senhaBemVindo,
-      descricaoBemVindo,
-      cpfBemVindo,
-      dataNascimentoBewmVindo,
-      cepBemVindo;
+  final String nome,
+      sobrenome,
+      apelido,
+      email,
+      senha,
+      descricao,
+      cpf,
+      dataNascimento,
+      cep;
 
   const BemVindoPage(
       {Key key,
-      this.nomeBemVindo,
-      this.sobrenomeBemVindo,
-      this.apelidoBemVindo,
-      this.emailBemVindo,
-      this.senhaBemVindo,
-      this.descricaoBemVindo,
-      this.cpfBemVindo,
-      this.dataNascimentoBewmVindo,
-      this.cepBemVindo})
+      this.nome,
+      this.sobrenome,
+      this.apelido,
+      this.email,
+      this.senha,
+      this.descricao,
+      this.cpf,
+      this.dataNascimento,
+      this.cep})
       : super(key: key);
 
   @override
@@ -37,7 +37,7 @@ class BemVindoPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Bem vindo, $apelidoBemVindo !\nO cadastro de $nomeBemVindo $sobrenomeBemVindo foi realizado com sucesso. Favor, verifique seu email \n$emailBemVindo para confirmar seu acesso!',
+              'Bem vindo, $apelido !\nO cadastro de $nome $sobrenome foi realizado com sucesso. Favor, verifique seu email \n$email para confirmar seu acesso!',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 20,
@@ -54,8 +54,8 @@ class BemVindoPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) => HomePage(
-                              nome: '$nomeBemVindo',
-                              email: '$emailBemVindo',
+                              nome: '$nome',
+                              email: '$email',
                             )));
               },
               child: Text(

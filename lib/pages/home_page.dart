@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:teste/pages/profile_page.dart';
 
 class HomePage extends StatefulWidget {
-  String nome, email;
-  HomePage({this.nome, this.email});
+  String nome, email, apelido, descricao, sobrenome;
+  HomePage(
+      {this.nome, this.email, this.apelido, this.descricao, this.sobrenome});
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -30,7 +31,18 @@ class _HomePageState extends State<HomePage> {
               title: Text('Início'),
               subtitle: Text('Tela Inicial'),
               onTap: () {
-                Navigator.of(context).pushReplacementNamed('/home');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomePage(
+                      apelido: '${widget.apelido}',
+                      nome: '${widget.nome}',
+                      sobrenome: '${widget.sobrenome}',
+                      email: '${widget.email}',
+                      descricao: '${widget.descricao}',
+                    ),
+                  ),
+                );
               },
             ),
             ListTile(
@@ -39,21 +51,37 @@ class _HomePageState extends State<HomePage> {
               subtitle: Text('Seu Perfil'),
               onTap: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => ProfilePage(
-                              nome: '$widget.nome',
-                            )));
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProfilePage(
+                      apelido: '${widget.apelido}',
+                      nome: '${widget.nome}',
+                      sobrenome: '${widget.sobrenome}',
+                      email: '${widget.email}',
+                      descricao: '${widget.descricao}',
+                    ),
+                  ),
+                );
               },
             ),
             ListTile(
-              leading: Icon(Icons.next_week),
-              title: Text('Mercado de Trabalho'),
-              subtitle: Text('Ofertas de Emprego'),
-              onTap: () {
-                Navigator.of(context).pushReplacementNamed('/home');
-              },
-            ),
+                leading: Icon(Icons.next_week),
+                title: Text('Mercado de Trabalho'),
+                subtitle: Text('Ofertas de Emprego'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HomePage(
+                        apelido: '${widget.apelido}',
+                        nome: '${widget.nome}',
+                        sobrenome: '${widget.sobrenome}',
+                        email: '${widget.email}',
+                        descricao: '${widget.descricao}',
+                      ),
+                    ),
+                  );
+                }),
             ListTile(
               leading: Icon(Icons.outbox),
               title: Text('Logout'),

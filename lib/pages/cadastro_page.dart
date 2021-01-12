@@ -56,10 +56,11 @@ class _CadastroPageState extends State<CadastroPage> {
         context,
         MaterialPageRoute(
           builder: (context) => BemVindoPage(
-            apelidoBemVindo: '$apelido',
-            nomeBemVindo: '$nome',
-            sobrenomeBemVindo: '$sobrenome',
-            emailBemVindo: '$email',
+            apelido: '$apelido',
+            nome: '$nome',
+            sobrenome: '$sobrenome',
+            email: '$email',
+            descricao: '$descricao',
           ),
         ),
       );
@@ -155,7 +156,7 @@ class _CadastroPageState extends State<CadastroPage> {
             _sendForm();
             _bemVindo();
           },
-          child: new Text('Cadastrar'),
+          child: Text('Cadastrar'),
         )
       ],
     );
@@ -164,16 +165,16 @@ class _CadastroPageState extends State<CadastroPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: new Scaffold(
+      home: Scaffold(
         backgroundColor: Colors.white,
-        appBar: new AppBar(
+        appBar: AppBar(
           backgroundColor: Colors.green[900],
-          title: new Text('Cadastro'),
+          title: Text('Cadastro'),
         ),
-        body: new SingleChildScrollView(
-          child: new Container(
-            margin: new EdgeInsets.all(15.0),
-            child: new Form(
+        body: SingleChildScrollView(
+          child: Container(
+            margin: EdgeInsets.all(15.0),
+            child: Form(
               key: _key,
               autovalidate: _validate,
               child: _formUI(),

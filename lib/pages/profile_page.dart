@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
+import 'home_page.dart';
+
 class ProfilePage extends StatefulWidget {
-  String nome;
-  ProfilePage({this.nome});
+  String nome, sobrenome, apelido, email, descricao;
+
+  ProfilePage(
+      {this.nome, this.apelido, this.descricao, this.email, this.sobrenome});
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
@@ -19,13 +23,51 @@ class _ProfilePageState extends State<ProfilePage> {
                 borderRadius: BorderRadius.circular(40),
                 child: Image.asset('assets/images/logo.png'),
               ),
-              accountName: Text('Usuário'),
-              accountEmail: Text('Usuário@email.com'),
+              accountName: Text('${widget.nome}'),
+              accountEmail: Text('${widget.email}'),
             ),
             ListTile(
               leading: Icon(Icons.home),
               title: Text('Início'),
               subtitle: Text('Tela Inicial'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomePage(
+                      apelido: '${widget.apelido}',
+                      nome: '${widget.nome}',
+                      sobrenome: '${widget.sobrenome}',
+                      email: '${widget.email}',
+                      descricao: '${widget.descricao}',
+                    ),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.account_box),
+              title: Text('Perfil'),
+              subtitle: Text('Seu Perfil'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProfilePage(
+                      apelido: '${widget.apelido}',
+                      nome: '${widget.nome}',
+                      sobrenome: '${widget.sobrenome}',
+                      email: '${widget.email}',
+                      descricao: '${widget.descricao}',
+                    ),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.next_week),
+              title: Text('Mercado de Trabalho'),
+              subtitle: Text('Ofertas de Emprego'),
               onTap: () {
                 Navigator.of(context).pushReplacementNamed('/home');
               },
@@ -36,22 +78,6 @@ class _ProfilePageState extends State<ProfilePage> {
               subtitle: Text('Tela de Login'),
               onTap: () {
                 Navigator.of(context).pushReplacementNamed('/login');
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.account_box),
-              title: Text('Perfil'),
-              subtitle: Text('Seu Perfil'),
-              onTap: () {
-                Navigator.of(context).pushReplacementNamed('/perfil');
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.next_week),
-              title: Text('Mercado de Trabalho'),
-              subtitle: Text('Ofertas de Emprego'),
-              onTap: () {
-                Navigator.of(context).pushReplacementNamed('/home');
               },
             ),
           ],
@@ -84,15 +110,21 @@ class _ProfilePageState extends State<ProfilePage> {
                   height: 30,
                   width: MediaQuery.of(context).size.width,
                   color: Colors.white,
-                  child: Text(
-                    '$widget.nome',
-                    style: TextStyle(fontSize: 20),
+                  child: Column(
+                    children: [
+                      Text(
+                        '${widget.nome}, "${widget.apelido}" ${widget.sobrenome}',
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Container(
                   color: Colors.white,
                   width: MediaQuery.of(context).size.width,
-                  height: 200,
+                  height: 150,
                   child: Image.asset(
                     'assets/images/logo.png',
                   ),

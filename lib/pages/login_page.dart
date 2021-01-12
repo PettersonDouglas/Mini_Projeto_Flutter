@@ -13,70 +13,72 @@ class _LoginPageState extends State<LoginPage> {
     return SizedBox(
       width: double.infinity,
       height: double.infinity,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: 200,
-              height: 200,
-              child: Image.asset('assets/images/logo.png'),
-            ),
-            Card(
-              child: Column(
-                children: [
-                  TextField(
-                    onChanged: (text) {
-                      email = text;
-                    },
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
-                        labelText: 'Email', border: OutlineInputBorder()),
-                  ),
-                ],
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: 200,
+                height: 200,
+                child: Image.asset('assets/images/logo.png'),
               ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Card(
-              child: Column(
-                children: [
-                  TextField(
-                    onChanged: (text) {
-                      senha = text;
-                    },
-                    obscureText: true,
-                    decoration: InputDecoration(
-                        labelText: 'Senha', border: OutlineInputBorder()),
-                  ),
-                ],
+              Card(
+                child: Column(
+                  children: [
+                    TextField(
+                      onChanged: (text) {
+                        email = text;
+                      },
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: InputDecoration(
+                          labelText: 'Email', border: OutlineInputBorder()),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            RaisedButton(
-              onPressed: () {
-                if (senha == '123' && email == 'aplicativo@teste.email.com') {
-                  Navigator.of(context).pushReplacementNamed('/home');
-                } else {
-                  _erroLogin();
-                }
-              },
-              child: Text('Entrar'),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed('/cadastro');
-              },
-              child: Text('Cadastrar'),
-            )
-          ],
+              SizedBox(
+                height: 10,
+              ),
+              Card(
+                child: Column(
+                  children: [
+                    TextField(
+                      onChanged: (text) {
+                        senha = text;
+                      },
+                      obscureText: true,
+                      decoration: InputDecoration(
+                          labelText: 'Senha', border: OutlineInputBorder()),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              RaisedButton(
+                onPressed: () {
+                  if (senha == '123' && email == 'aplicativo@teste.email.com') {
+                    Navigator.of(context).pushReplacementNamed('/home');
+                  } else {
+                    _erroLogin();
+                  }
+                },
+                child: Text('Entrar'),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/cadastro');
+                },
+                child: Text('Cadastrar'),
+              )
+            ],
+          ),
         ),
       ),
     );
