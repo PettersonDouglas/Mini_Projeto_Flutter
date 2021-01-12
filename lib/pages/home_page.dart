@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
+  String nome, email;
+  HomePage({this.nome, this.email});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -11,14 +14,15 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       drawer: Drawer(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             UserAccountsDrawerHeader(
               currentAccountPicture: ClipRRect(
                 borderRadius: BorderRadius.circular(40),
                 child: Image.asset('assets/images/logo.png'),
               ),
-              accountName: Text('Usuário'),
-              accountEmail: Text('Usuário@email.com'),
+              accountName: Text('${widget.nome}'),
+              accountEmail: Text('${widget.email}'),
             ),
             ListTile(
               leading: Icon(Icons.home),
@@ -26,14 +30,6 @@ class _HomePageState extends State<HomePage> {
               subtitle: Text('Tela Inicial'),
               onTap: () {
                 Navigator.of(context).pushReplacementNamed('/home');
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.outbox),
-              title: Text('Logout'),
-              subtitle: Text('Tela de Login'),
-              onTap: () {
-                Navigator.of(context).pushReplacementNamed('/login');
               },
             ),
             ListTile(
@@ -50,6 +46,14 @@ class _HomePageState extends State<HomePage> {
               subtitle: Text('Ofertas de Emprego'),
               onTap: () {
                 Navigator.of(context).pushReplacementNamed('/home');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.outbox),
+              title: Text('Logout'),
+              subtitle: Text('Tela de Login'),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed('/login');
               },
             ),
           ],
@@ -78,7 +82,13 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('teste'),
+                Text(
+                  'teste',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
+                ),
               ],
             ),
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teste/pages/home_page.dart';
 
 class BemVindoPage extends StatelessWidget {
   final String nomeBemVindo,
@@ -49,7 +50,13 @@ class BemVindoPage extends StatelessWidget {
               color: Colors.green[900],
               textColor: Colors.white,
               onPressed: () {
-                Navigator.of(context).pushReplacementNamed('/home');
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => HomePage(
+                              nome: '$nomeBemVindo',
+                              email: '$emailBemVindo',
+                            )));
               },
               child: Text(
                 'Aceitar',

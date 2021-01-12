@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:teste/pages/bem_vindo_page.dart';
 
 class CadastroPage extends StatefulWidget {
   @override
@@ -51,7 +52,17 @@ class _CadastroPageState extends State<CadastroPage> {
         descricao != null &&
         senha != null) {
       print('tudo ok');
-      Navigator.of(context).pushReplacementNamed('/bemvindo');
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => BemVindoPage(
+            apelidoBemVindo: '$apelido',
+            nomeBemVindo: '$nome',
+            sobrenomeBemVindo: '$sobrenome',
+            emailBemVindo: '$email',
+          ),
+        ),
+      );
     }
   }
 
