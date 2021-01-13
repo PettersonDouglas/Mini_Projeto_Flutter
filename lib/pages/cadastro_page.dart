@@ -317,7 +317,7 @@ String _validarSenha(String value) {
 }
 
 String _validarDescricao(String value) {
-  String patttern = r'(^[a-zA-Z\-0-9\^<>()[\]\\.,~;ãÃâÂéÉêÊíÍç:\s@\"]*$)';
+  String patttern = r'(^[a-zA-Z\-0-9\^<>()[\]\\.,~;ãÃâÂéçiçÉêÊíÍ:\s@\"]*$)';
   RegExp regExp = new RegExp(patttern);
   if (value.length == 0) {
     return "Descrição de Perfil";
