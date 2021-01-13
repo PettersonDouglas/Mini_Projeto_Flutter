@@ -174,7 +174,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 15,
                 ),
                 Card(
                   child: Padding(
@@ -205,6 +205,20 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Row(
+                  children: [],
+                ),
+                BottomAppBar(
+                  child: Icon(Icons.video_library),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
