@@ -71,7 +71,12 @@ class _CadastroPageState extends State<CadastroPage> {
     return new Column(
       children: <Widget>[
         new TextFormField(
-          decoration: new InputDecoration(hintText: 'Nome'),
+          decoration: new InputDecoration(
+            hintText: 'Nome',
+            icon: Icon(
+              Icons.perm_identity,
+            ),
+          ),
           maxLength: 15,
           validator: _validarNome,
           onSaved: (String val) {
@@ -79,7 +84,12 @@ class _CadastroPageState extends State<CadastroPage> {
           },
         ),
         new TextFormField(
-          decoration: new InputDecoration(hintText: 'Sobrenome'),
+          decoration: new InputDecoration(
+            hintText: 'Sobrenome',
+            icon: Icon(
+              Icons.person,
+            ),
+          ),
           maxLength: 15,
           validator: _validarSobrenome,
           onSaved: (String val) {
@@ -87,7 +97,12 @@ class _CadastroPageState extends State<CadastroPage> {
           },
         ),
         new TextFormField(
-          decoration: new InputDecoration(hintText: 'Apelido'),
+          decoration: new InputDecoration(
+            hintText: 'Apelido',
+            icon: Icon(
+              Icons.person_pin_rounded,
+            ),
+          ),
           maxLength: 15,
           validator: _validarApelido,
           onSaved: (String val) {
@@ -95,7 +110,11 @@ class _CadastroPageState extends State<CadastroPage> {
           },
         ),
         new TextFormField(
-          decoration: new InputDecoration(hintText: 'Data de Nascimento'),
+          decoration: new InputDecoration(
+              hintText: 'Data de Nascimento',
+              icon: Icon(
+                Icons.cake,
+              )),
           keyboardType: TextInputType.phone,
           maxLength: 8,
           validator: _validarDataNascimento,
@@ -104,7 +123,8 @@ class _CadastroPageState extends State<CadastroPage> {
           },
         ),
         new TextFormField(
-          decoration: new InputDecoration(hintText: 'CPF'),
+          decoration:
+              new InputDecoration(hintText: 'CPF', icon: Icon(Icons.dock)),
           keyboardType: TextInputType.phone,
           maxLength: 11,
           validator: _validarCpf,
@@ -113,7 +133,8 @@ class _CadastroPageState extends State<CadastroPage> {
           },
         ),
         new TextFormField(
-          decoration: new InputDecoration(hintText: 'CEP'),
+          decoration: new InputDecoration(
+              hintText: 'CEP', icon: Icon(Icons.house_outlined)),
           keyboardType: TextInputType.phone,
           maxLength: 8,
           validator: _validarCep,
@@ -122,7 +143,12 @@ class _CadastroPageState extends State<CadastroPage> {
           },
         ),
         new TextFormField(
-          decoration: new InputDecoration(hintText: 'Email'),
+          decoration: new InputDecoration(
+            hintText: 'Email',
+            icon: Icon(
+              Icons.email,
+            ),
+          ),
           keyboardType: TextInputType.emailAddress,
           maxLength: 40,
           validator: _validarEmail,
@@ -131,7 +157,12 @@ class _CadastroPageState extends State<CadastroPage> {
           },
         ),
         new TextFormField(
-          decoration: new InputDecoration(hintText: 'Descrição'),
+          decoration: new InputDecoration(
+            hintText: 'Descrição',
+            icon: Icon(
+              Icons.speaker_notes,
+            ),
+          ),
           keyboardType: TextInputType.emailAddress,
           maxLength: 150,
           validator: _validarDescricao,
@@ -140,13 +171,17 @@ class _CadastroPageState extends State<CadastroPage> {
           },
         ),
         new TextFormField(
-          decoration: new InputDecoration(hintText: 'Senha'),
+          decoration: new InputDecoration(
+            hintText: 'Senha',
+            icon: Icon(Icons.lock),
+          ),
           keyboardType: TextInputType.emailAddress,
           maxLength: 16,
           validator: _validarSenha,
           onSaved: (String val) {
             senha = val;
           },
+          obscureText: true,
         ),
         new SizedBox(height: 15.0),
         RaisedButton(
@@ -265,19 +300,19 @@ String _validarEmail(String value) {
   if (value.length == 0) {
     return "Informe o Email";
   } else if (!regExp.hasMatch(value)) {
-    return "Email inválido";
+    return "Email inválido!";
   } else {
     return null;
   }
 }
 
 String _validarSenha(String value) {
-  String patttern = r'(^[a-zA-Z ]*$)';
+  String patttern = r'(^[a-zA-Z\-0-9 ]*$)';
   RegExp regExp = new RegExp(patttern);
   if (value.length == 0) {
     return "Informe a senha";
   } else if (!regExp.hasMatch(value)) {
-    return "O nome deve conter caracteres de a-z ou A-Z";
+    return "A senha não pode conter caracteres especiais";
   }
   return null;
 }
