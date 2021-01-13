@@ -211,10 +211,24 @@ class _ProfilePageState extends State<ProfilePage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Row(
-                  children: [],
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                        height: 100,
+                        width: 200,
+                        child: Image.asset('assets/images/chuteira.jpg'))
+                  ],
                 ),
-                BottomAppBar(
-                  child: Icon(Icons.video_library),
+                Text(
+                  'Galeria',
+                  style: TextStyle(
+                      backgroundColor: Colors.green, color: Colors.white),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                ButtonBar(
+                  children: [Icon(Icons.playlist_add_outlined)],
                 ),
               ],
             ),

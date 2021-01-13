@@ -68,10 +68,10 @@ class _CadastroPageState extends State<CadastroPage> {
   }
 
   Widget _formUI() {
-    return new Column(
+    return Column(
       children: <Widget>[
-        new TextFormField(
-          decoration: new InputDecoration(
+        TextFormField(
+          decoration: InputDecoration(
             hintText: 'Nome',
             icon: Icon(
               Icons.perm_identity,
@@ -83,8 +83,8 @@ class _CadastroPageState extends State<CadastroPage> {
             nome = val;
           },
         ),
-        new TextFormField(
-          decoration: new InputDecoration(
+        TextFormField(
+          decoration: InputDecoration(
             hintText: 'Sobrenome',
             icon: Icon(
               Icons.person,
@@ -96,8 +96,8 @@ class _CadastroPageState extends State<CadastroPage> {
             sobrenome = val;
           },
         ),
-        new TextFormField(
-          decoration: new InputDecoration(
+        TextFormField(
+          decoration: InputDecoration(
             hintText: 'Apelido',
             icon: Icon(
               Icons.person_pin_rounded,
@@ -109,8 +109,8 @@ class _CadastroPageState extends State<CadastroPage> {
             apelido = val;
           },
         ),
-        new TextFormField(
-          decoration: new InputDecoration(
+        TextFormField(
+          decoration: InputDecoration(
               hintText: 'Data de Nascimento',
               icon: Icon(
                 Icons.cake,
@@ -122,9 +122,8 @@ class _CadastroPageState extends State<CadastroPage> {
             dataNascimento = val;
           },
         ),
-        new TextFormField(
-          decoration:
-              new InputDecoration(hintText: 'CPF', icon: Icon(Icons.dock)),
+        TextFormField(
+          decoration: InputDecoration(hintText: 'CPF', icon: Icon(Icons.dock)),
           keyboardType: TextInputType.phone,
           maxLength: 11,
           validator: _validarCpf,
@@ -132,8 +131,8 @@ class _CadastroPageState extends State<CadastroPage> {
             cpf = val;
           },
         ),
-        new TextFormField(
-          decoration: new InputDecoration(
+        TextFormField(
+          decoration: InputDecoration(
               hintText: 'CEP', icon: Icon(Icons.house_outlined)),
           keyboardType: TextInputType.phone,
           maxLength: 8,
@@ -142,8 +141,8 @@ class _CadastroPageState extends State<CadastroPage> {
             cep = val;
           },
         ),
-        new TextFormField(
-          decoration: new InputDecoration(
+        TextFormField(
+          decoration: InputDecoration(
             hintText: 'Email',
             icon: Icon(
               Icons.email,
@@ -156,8 +155,8 @@ class _CadastroPageState extends State<CadastroPage> {
             email = val;
           },
         ),
-        new TextFormField(
-          decoration: new InputDecoration(
+        TextFormField(
+          decoration: InputDecoration(
             hintText: 'Descrição',
             icon: Icon(
               Icons.speaker_notes,
@@ -170,8 +169,8 @@ class _CadastroPageState extends State<CadastroPage> {
             descricao = val;
           },
         ),
-        new TextFormField(
-          decoration: new InputDecoration(
+        TextFormField(
+          decoration: InputDecoration(
             hintText: 'Senha',
             icon: Icon(Icons.lock),
           ),
@@ -183,7 +182,7 @@ class _CadastroPageState extends State<CadastroPage> {
           },
           obscureText: true,
         ),
-        new SizedBox(height: 15.0),
+        SizedBox(height: 15.0),
         RaisedButton(
           textColor: Colors.white,
           color: Colors.green[800],
@@ -318,7 +317,7 @@ String _validarSenha(String value) {
 }
 
 String _validarDescricao(String value) {
-  String patttern = r'(^[a-zA-Z\-0-9\^<>()[\]\\.,;:\s@\"]*$)';
+  String patttern = r'(^[a-zA-Z\-0-9\^<>()[\]\\.,~;ãÃâÂéÉêÊíÍç:\s@\"]*$)';
   RegExp regExp = new RegExp(patttern);
   if (value.length == 0) {
     return "Descrição de Perfil";
