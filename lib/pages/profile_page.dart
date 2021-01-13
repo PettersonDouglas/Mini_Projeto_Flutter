@@ -69,7 +69,18 @@ class _ProfilePageState extends State<ProfilePage> {
               title: Text('Mercado de Trabalho'),
               subtitle: Text('Ofertas de Emprego'),
               onTap: () {
-                Navigator.of(context).pushReplacementNamed('/home');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomePage(
+                      apelido: '${widget.apelido}',
+                      nome: '${widget.nome}',
+                      sobrenome: '${widget.sobrenome}',
+                      email: '${widget.email}',
+                      descricao: '${widget.descricao}',
+                    ),
+                  ),
+                );
               },
             ),
             ListTile(
@@ -98,7 +109,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 fit: BoxFit.cover,
               )),
           Container(
-            color: Colors.black.withOpacity(0.3),
+            color: Colors.black.withOpacity(0.4),
           ),
           Container(
             height: MediaQuery.of(context).size.height,
@@ -106,32 +117,72 @@ class _ProfilePageState extends State<ProfilePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Container(
-                  height: 30,
-                  width: MediaQuery.of(context).size.width,
-                  color: Colors.white,
-                  child: Column(
-                    children: [
-                      Text(
-                        '${widget.nome}, "${widget.apelido}" ${widget.sobrenome}',
-                        style: TextStyle(
-                          fontSize: 20,
+                Padding(
+                  padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
+                  child: Container(
+                    padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
+                    height: 40,
+                    width: MediaQuery.of(context).size.width,
+                    color: Colors.green[500],
+                    child: Column(
+                      children: [
+                        Text(
+                          '${widget.nome}, "${widget.apelido}" ${widget.sobrenome}',
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  color: Colors.white,
-                  width: MediaQuery.of(context).size.width,
-                  height: 150,
-                  child: Image.asset(
-                    'assets/images/logo.png',
+                Card(
+                  child: Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              'Editar',
+                              style: TextStyle(color: Colors.blueAccent),
+                            )
+                          ],
+                        ),
+                        Container(
+                          color: Colors.white,
+                          width: MediaQuery.of(context).size.width,
+                          height: 120,
+                          child: Image.asset(
+                            'assets/images/logo.png',
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(
                   height: 30,
                 ),
+                Card(
+                  child: Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Column(children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          Text(
+                            'Editar',
+                            style: TextStyle(
+                                color: Colors.blueAccent, fontSize: 10),
+                          )
+                        ],
+                      ),
+                      Text('${widget.descricao}'),
+                    ]),
+                  ),
+                )
               ],
             ),
           ),
