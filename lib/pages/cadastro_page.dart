@@ -307,7 +307,7 @@ String _validarEmail(String value) {
 }
 
 String _validarSenha(String value) {
-  String patttern = r'(^[a-zA-Z\-0-9 ]*$)';
+  String patttern = r'(^[a-zA-Z\-0-9\^<>()[\]\\.,;:\s@\" ]*$)';
   RegExp regExp = new RegExp(patttern);
   if (value.length == 0) {
     return "Informe a senha";
@@ -318,12 +318,12 @@ String _validarSenha(String value) {
 }
 
 String _validarDescricao(String value) {
-  String patttern = r'(^[a-zA-Z ]*$)';
+  String patttern = r'(^[a-zA-Z\-0-9\^<>()[\]\\.,;:\s@\"]*$)';
   RegExp regExp = new RegExp(patttern);
   if (value.length == 0) {
     return "Descrição de Perfil";
   } else if (!regExp.hasMatch(value)) {
-    return "O nome deve conter caracteres de a-z ou A-Z";
+    return "A descrição não pode conter caracteres especiais";
   }
   return null;
 }

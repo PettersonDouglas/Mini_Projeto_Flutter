@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teste/pages/news_page.dart';
 
 import 'home_page.dart';
 
@@ -78,7 +79,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => HomePage(
+                    builder: (context) => NewsPage(
                       apelido: '${widget.apelido}',
                       nome: '${widget.nome}',
                       sobrenome: '${widget.sobrenome}',

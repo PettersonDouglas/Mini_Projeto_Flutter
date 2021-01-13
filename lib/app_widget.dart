@@ -5,6 +5,7 @@ import 'package:teste/pages/cadastro_page.dart';
 
 import 'package:teste/pages/home_page.dart';
 import 'package:teste/pages/login_page.dart';
+import 'package:teste/pages/news_page.dart';
 import 'package:teste/pages/profile_page.dart';
 
 class MyApp extends StatelessWidget {
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         '/cadastro': (context) => CadastroPage(),
         '/perfil': (context) => ProfilePage(),
         '/bemvindo': (context) => BemVindoPage(),
+        '/news': (contex) => NewsPage(),
       },
     );
   }

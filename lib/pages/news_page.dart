@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:teste/pages/news_page.dart';
-import 'package:teste/pages/profile_page.dart';
+import 'package:teste/pages/home_page.dart';
 
-class HomePage extends StatefulWidget {
+import 'profile_page.dart';
+
+class NewsPage extends StatefulWidget {
   final String nome, email, apelido, descricao, sobrenome;
-  const HomePage({
+  const NewsPage({
     Key key,
     this.nome,
     this.sobrenome,
@@ -12,12 +13,11 @@ class HomePage extends StatefulWidget {
     this.email,
     this.descricao,
   }) : super(key: key);
-
   @override
-  _HomePageState createState() => _HomePageState();
+  _NewsPageState createState() => _NewsPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _NewsPageState extends State<NewsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,38 +102,9 @@ class _HomePageState extends State<HomePage> {
       ),
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Super Craques'),
-        actions: [],
-      ),
-      body: Stack(
-        children: [
-          SizedBox(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              child: Image.asset(
-                'assets/images/campo.png',
-                fit: BoxFit.cover,
-              )),
-          Container(
-            color: Colors.black.withOpacity(0.3),
-          ),
-          Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'teste',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
+        title: Text(
+          'Notícias',
+        ),
       ),
     );
   }
