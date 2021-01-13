@@ -145,16 +145,20 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 Card(
                   child: Padding(
-                    padding: EdgeInsets.all(16),
+                    padding: EdgeInsets.only(top: 3, right: 3),
                     child: Column(
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Text(
-                              'Editar',
-                              style: TextStyle(color: Colors.blueAccent),
-                            )
+                            IconButton(
+                              icon: Icon(Icons.edit),
+                              onPressed: () {
+                                _editarImagem();
+                              },
+                              tooltip: "Editar",
+                              color: Colors.blueAccent,
+                            ),
                           ],
                         ),
                         Container(
@@ -174,19 +178,27 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 Card(
                   child: Padding(
-                    padding: EdgeInsets.all(16),
+                    padding: EdgeInsets.only(right: 5),
                     child: Column(children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: <Widget>[
-                          Text(
-                            'Editar',
-                            style: TextStyle(
-                                color: Colors.blueAccent, fontSize: 10),
-                          )
+                          IconButton(
+                            icon: Icon(Icons.edit),
+                            onPressed: () {
+                              _editarDescricao();
+                            },
+                            tooltip: "Editar",
+                            color: Colors.blueAccent,
+                          ),
                         ],
                       ),
-                      Text('' + widget.descricao),
+                      Text(
+                        '${widget.descricao}',
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
                     ]),
                   ),
                 )
@@ -197,4 +209,7 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
     );
   }
+
+  _editarDescricao() {}
+  _editarImagem() {}
 }
