@@ -54,8 +54,11 @@ class BemVindoPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) => HomePage(
+                              apelido: '$apelido',
                               nome: '$nome',
+                              sobrenome: '$sobrenome',
                               email: '$email',
+                              descricao: '$descricao',
                             )));
               },
               child: Text(

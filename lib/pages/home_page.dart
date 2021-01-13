@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:teste/pages/profile_page.dart';
 
 class HomePage extends StatefulWidget {
-  String nome, email, apelido, descricao, sobrenome;
-  HomePage(
-      {this.nome, this.email, this.apelido, this.descricao, this.sobrenome});
+  final String nome, email, apelido, descricao, sobrenome;
+  const HomePage({
+    Key key,
+    this.nome,
+    this.sobrenome,
+    this.apelido,
+    this.email,
+    this.descricao,
+  }) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();

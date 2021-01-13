@@ -3,10 +3,16 @@ import 'package:flutter/material.dart';
 import 'home_page.dart';
 
 class ProfilePage extends StatefulWidget {
-  String nome, sobrenome, apelido, email, descricao;
+  final String nome, sobrenome, apelido, email, descricao;
 
-  ProfilePage(
-      {this.nome, this.apelido, this.descricao, this.email, this.sobrenome});
+  const ProfilePage({
+    Key key,
+    this.nome,
+    this.sobrenome,
+    this.apelido,
+    this.email,
+    this.descricao,
+  }) : super(key: key);
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
@@ -179,7 +185,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           )
                         ],
                       ),
-                      Text('${widget.descricao}'),
+                      Text('' + widget.descricao),
                     ]),
                   ),
                 )
